@@ -120,7 +120,7 @@ export default function Home(props) {
   </>
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps() {
   //fetch data of all events from API
   const client = await MongoClient.connect('mongodb+srv://ideacon:next-12345@cluster0.ifz0crw.mongodb.net/?retryWrites=true&w=majority');
   const db = client.db();
@@ -145,7 +145,6 @@ export async function getStaticProps(context) {
         nickname: event.nickname,
         picture: event.picture,
       })),
-      revalidate: 5,
     }
   }
 }
