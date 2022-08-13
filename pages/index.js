@@ -145,6 +145,7 @@ export async function getStaticProps(context) {
         nickname: event.nickname,
         picture: event.picture,
       })),
+      revalidate: 5,
     }
   }
 }
